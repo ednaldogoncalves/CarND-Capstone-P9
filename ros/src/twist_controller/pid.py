@@ -18,9 +18,11 @@ class PID(object):
 
     def step(self, error, sample_time):
 
+        # if error too large
         integral = self.int_val + error * sample_time;
         derivative = (error - self.last_error) / sample_time;
 
+        # restrain the too large varie in short time    
         val = self.kp * error + self.ki * integral + self.kd * derivative;
 
         if val > self.max:

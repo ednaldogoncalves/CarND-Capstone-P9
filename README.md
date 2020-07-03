@@ -363,14 +363,16 @@ After getting the upcoming traffic light position, the light status is determine
 - Use the camera image data (`/image_color`) to classify the color of the traffic light.  We trained a deep learning classifier to classify the entire image as containing either a red light, yellow light, green light, or no light.
 
 #### ii. Waypoint publishing:
-With identified the traffic light status and its position, The traffic light detection node (`tl_detector.py`) will publish the postion(index) of the waypoint for nearest **upcoming red light's stopline** to a single topic **/traffic_waypoint**.
+With identified the traffic light status and its position, The traffic light detection node (`tl_detector.py`) will publish the postion(index) of the waypoint for nearest **upcoming red light's stopline** to a single topic `/traffic_waypoint`.
 
-Notes: When utilizing **/vehicle/traffic_lights**  to determine light status, the waypoint publishing is done in `traffic_cb` method.
+Notes: When utilizing `/vehicle/traffic_lights`  to determine light status, the waypoint publishing is done in `traffic_cb` method.
 
 ### Step 4. Waypoint Updater (Full):
-Use the waypoint index from **/traffic_waypoint** to change the waypoint target velocities before publishing to /**final_waypoints**.
+Use the waypoint index from `/traffic_waypoint` to change the waypoint target velocities before publishing to `/final_waypoints`.
 
-The code is updated in `(path_to_project_repo)/ros/src/waypoint_updater/waypoint_updater.py`.
+The code is updated in:
+
+- **(path_to_project_repo)/ros/src/waypoint_updater/[waypoint_updater.py](./ros/src/waypoint_updater/waypoint_updater.py)**.
 
 The goal is to adjust the target velocities for the waypoints leading up to red traffic lights in order to bring the car to a smooth and full stop.
 At this point,  the car can stop at red traffic lights and move when they are green, by utilizing `light.state` in simulator.
@@ -380,7 +382,7 @@ Now our task left is to implement **traffic light classification using camera im
 ## Traffic Light Classification
 The traffic light classification is to detect the traffic light color from the messages of topic **/image_color**, the messages are actually camera images.
 
-In order to obtain an **image classifier**, transfer learning was in consideration, but how to train new models with new dataset for object detection is the key problem. 
+In order to obtain an **image classifier**, transfer learning was in consideration, but how to train new models with new dataset for object detection is the key problem.
 
 Alex's work on [Traffic Light Classification](https://github.com/alex-lechner/Traffic-Light-Classification#traffic-light-classification) helped a lot. The basic idea is to leverage **Tensorflow Object Detection API**. The documentation is a little bit confusing and very time consuming for environment setup and configurations for the first time user.
 
@@ -496,5 +498,3 @@ Full video of the track lap executed in the project<br>
 <a target="_blank" style="text-decoration: none" href="https://www.lgontelecom.com.br/udacity/project9/full_video_high_player.html"><img src="./imgs/full_video.jpg"></a><br>
 <a href="./videos/full_video_high.mp4">Download video</a>
 </p>
-
-

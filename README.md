@@ -187,6 +187,79 @@ catkin_make
 source devel/setup.sh
 roslaunch launch/styx.launch
 ```
+```Bash
+(venv) root@ea7a926dfb46:/home/workspace/CarND-Capstone/ros# catkin_make
+Base path: /home/workspace/CarND-Capstone/ros
+Source space: /home/workspace/CarND-Capstone/ros/src
+Build space: /home/workspace/CarND-Capstone/ros/build
+Devel space: /home/workspace/CarND-Capstone/ros/devel
+Install space: /home/workspace/CarND-Capstone/ros/install
+####
+#### Running command: "make cmake_check_build_system" in "/home/workspace/CarND-Capstone/ros/build"
+####
+####
+#### Running command: "make -j4 -l4" in "/home/workspace/CarND-Capstone/ros/build"
+####
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_Misc1Report
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_TirePressureReport
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_TwistCmd
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_HillStartAssist
+[  0%] Built target geometry_msgs_generate_messages_nodejs
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_ParkingBrake
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_TurnSignalCmd
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_BrakeReport
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_Gear
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_WheelSpeedReport
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_BrakeInfoReport
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_TurnSignal
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_GearReport
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_AmbientLight
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_ThrottleReport
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_GearCmd
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_SteeringCmd
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_ThrottleCmd
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_GearReject
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_SurroundReport
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_SteeringReport
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_FuelLevelReport
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_BrakeCmd
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_ThrottleInfoReport
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_WheelPositionReport
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target geometry_msgs_generate_messages_lisp
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_WatchdogCounter
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target _dbw_mkz_msgs_generate_messages_check_deps_Wiper
+[  0%] Built target geometry_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target geometry_msgs_generate_messages_cpp
+[  0%] Built target geometry_msgs_generate_messages_eus
+[  0%] Built target sensor_msgs_generate_messages_lisp
+[  0%] Built target _styx_msgs_generate_messages_check_deps_Waypoint
+[  0%] Built target _styx_msgs_generate_messages_check_deps_Lane
+[  0%] Built target _styx_msgs_generate_messages_check_deps_TrafficLightArray
+[  0%] Built target sensor_msgs_generate_messages_nodejs
+[  0%] Built target sensor_msgs_generate_messages_cpp
+[  0%] Built target _styx_msgs_generate_messages_check_deps_TrafficLight
+[  0%] Built target sensor_msgs_generate_messages_py
+[  0%] Built target sensor_msgs_generate_messages_eus
+[ 16%] Built target dbw_mkz_msgs_generate_messages_lisp
+[ 32%] Built target dbw_mkz_msgs_generate_messages_nodejs
+[ 49%] Built target dbw_mkz_msgs_generate_messages_py
+[ 59%] Built target styx_msgs_generate_messages_lisp
+[ 70%] Built target dbw_mkz_msgs_generate_messages_cpp
+[ 84%] Built target dbw_mkz_msgs_generate_messages_eus
+[ 88%] Built target styx_msgs_generate_messages_nodejs
+[ 91%] Built target styx_msgs_generate_messages_py
+[ 93%] Built target styx_msgs_generate_messages_cpp
+[ 96%] Built target styx_msgs_generate_messages_eus
+[ 96%] Built target dbw_mkz_msgs_generate_messages
+[ 96%] Built target styx_msgs_generate_messages
+[ 97%] Built target libwaypoint_follower
+[100%] Built target pure_pursuit
+```
 Above are for running with simulator, if running with real site:
 Use `roslaunch launch/site.launch`
 
@@ -195,8 +268,8 @@ Initial test is done by running project code **within the VM** while running the
 
 Due to the low performance with the VM and local machine, the initial test can only help ensure the code run without obvious errors, it is a way to **quick check** on code logic and some variables' values.
 
-## Final code test 
-The Udacity project workspace is installed with Ubuntu linux and ROS already, but GPU time is limited , so only **final test** is done in **the workspace with GPU enabled** after the code can run through initial test. 
+## Final code test
+The Udacity project workspace is installed with Ubuntu linux and ROS already, but GPU time is limited , so only **final test** is done in **the workspace with GPU enabled** after the code can run through initial test.
 
 For example, when the car could run forward in initial test in simulator, but the waypoints were lagging behind the car, and the car would drive out of the track after a while, these would tell us that the code is most likely working but the performance is too bad with the VM, we have to use more powerful system.
 
@@ -400,7 +473,8 @@ If a light is detected, most of scores can be over 90% and up to 99%.
 The car can **run well**, **stop** at each red light perfectly, and **continue** to run till a loop of the track.
 
 <p align="center">
-<img src="./imgs/full_video.gif">
+<img src="./imgs/without_cam.gif"><br>
+<a href="./videos/full_video_without_cam.mp4">Download video</a>
 </p>
 
 Also performed in the test lot.

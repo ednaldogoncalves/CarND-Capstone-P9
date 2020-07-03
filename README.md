@@ -118,15 +118,14 @@ The following is a system architecture diagram (provided by Udacity) showing the
 The diagram below shows the subsystem division, as well as the ROS nodes and topics.
 
 - nodes: are single process within the ROS graph. The main nodes that we worked on, or completed from the Udacity repository, were:
-	- **tl_detector:** in the perception subsystem.
-	- **waypoint_updater:** in the planning subsystem
-	- **dbw_node:** in the control subsystem
+	- `/tl_detector`: in the perception subsystem.
+	- `/waypoint_updater`: in the planning subsystem
+	- `/dbw_node`: in the control subsystem
 - topics: are named buses over which nodes send and receive messages, by subscribing or publishing to them.
 
 <p align="center">
 <img src="./imgs/final-project-ros-graph-v2.png">
 </p>
-
 
 ### i. Perception (tl_detector.py)
 
@@ -245,7 +244,7 @@ The goal for this part is to:
  ```
  The DBW system on Carla expects messages at the frequency of 50Hz, if rates are lower, safety feature on the car will return control to the driver.
 
-- [line 87](./ros/src/twist_controller/dbw_node.py#L87) in twist_controller.py
+- [line 87](./ros/src/twist_controller/twist_controller.py#L87) in twist_controller.py
 ```Bash
   brake = BRAKE_  # N*m , 400 for simulator, 700 for Carla
 ```
@@ -269,7 +268,7 @@ Once the adjustments have been made, from that moment onwards, it is possible fo
 Once the car is able to process waypoints, generate steering and throttle commands, and traverse the track, it will need stop for obstacles. Here just focused on Traffic lights.
 
 The code is in:
-- **(path_to_project_repo)/ros/src/[tl_detector/](./ros/src/twist_controller)**
+- **(path_to_project_repo)/ros/src/[tl_detector/](./ros/src/tl_detector)**
 ```Bash
 tl_detector.py
 ```
@@ -290,7 +289,7 @@ After getting the upcoming traffic light position, the light status is determine
 
 - Use the camera image data (`/image_color`) to classify the color of the traffic light.  We trained a deep learning classifier to classify the entire image as containing either a red light, yellow light, green light, or no light.
 
-#### ii. Waypoint publishing: 
+#### ii. Waypoint publishing:
 With identified the traffic light status and its position, The traffic light detection node (`tl_detector.py`) will publish the postion(index) of the waypoint for nearest **upcoming red light's stopline** to a single topic **/traffic_waypoint**.
 
 Notes: When utilizing **/vehicle/traffic_lights**  to determine light status, the waypoint publishing is done in `traffic_cb` method.
@@ -312,7 +311,7 @@ In order to obtain an **image classifier**, transfer learning was in considerati
 
 Alex's work on [Traffic Light Classification](https://github.com/alex-lechner/Traffic-Light-Classification#traffic-light-classification) helped a lot. The basic idea is to leverage **Tensorflow Object Detection API**. The documentation is a little bit confusing and very time consuming for environment setup and configurations for the first time user.
 
-### **Environment Setup (Linux) **
+### Environment Setup (Linux)
 #### Setup for [Tensorflow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection)
 
 In order to use the API, we followed the installation guide [here](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md), but workarounds are needed when some commands don't work. Most of time they are machine specific problems.
@@ -384,11 +383,13 @@ The following steps were followed according to procedures described in the [Alex
 - Train with GPUs using Google Cloud Platform (GCP) or AWS spot instance.
 - Freezing, export and test the final graph. To the individual image, test results in jupyter notebook [here](./utils/test_object_detection/tl_classification_test.ipynb).
 
-#### i. Simulator Graph [Result](./Test_object_dection/tl_classification_Test_Final_sim.html)
+#### i. Simulator Graph Result
+
 Model trained **`10000`** steps
 If a light is detected, the score can be up to 99%, the lowest score can also be over 70%
 
-#### ii. Real Site Graph [Result](./Test_object_dection/tl_classification_Test_Final_site.html)
+#### ii. Real Site Graph Result
+
 Model trained **`20000`** steps
 If a light is detected, most of scores can be over 90% and up to 99%.
 
@@ -406,7 +407,7 @@ Also performed in the test lot.
 
 <p align="center">
 <img src="./imgs/lot_test.gif"><br>
-<a href="./videos/lo_test.mp4">Download video</a>
+<a href="./videos/lot_test.mp4">Download video</a>
 </p>
 
 

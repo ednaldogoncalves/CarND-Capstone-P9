@@ -4,9 +4,9 @@ Udacity Self-Driving Car Engineer Nanodegree Program <br>
 
 **Individual submitting**
   
-<p>Full Name: 				**Ednaldo Gonçalves**
-Student Hub Display Name: 	**Ednaldo G.**
-E-mail: 					**ednaldo.tic@gmail.com**</p>
+<p>Full Name: 					**Ednaldo Gonçalves**</p>
+<p>Student Hub Display Name: 	**Ednaldo G.**</p>  
+<p>E-mail: 						**ednaldo.tic@gmail.com**</p>
 
 <p align="center">
 <img src="./imgs/capstone.png">

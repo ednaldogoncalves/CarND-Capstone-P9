@@ -2,6 +2,12 @@
 Udacity Self-Driving Car Engineer Nanodegree Program <br>
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
+**Individual submitting**
+  
+Full Name: 					Ednaldo Gonçalves
+Student Hub Display Name: 	Ednaldo G.  
+E-mail: 					ednaldo.tic@gmail.com
+
 <p align="center">
 <img src="./imgs/capstone.png">
 </p>

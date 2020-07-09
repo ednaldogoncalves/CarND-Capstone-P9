@@ -26,9 +26,9 @@ TODO (for Yousuf and Aaron): Stopline location for each traffic light.
 LOOKAHEAD_WPS = 50  # Number of waypoints we will publish.
                     # Those are the first 200 waypoints in front of the car.
 
-RATE = 20           # Orig: 50Hz, publishing frequency
+RATE = 50           # Orig: 50Hz, publishing frequency
 STOP_AHEAD = 3      # Buffer waypoints that one stop line is ahead 
-MAX_DECEL = 0.5     # Maximum deceleration 
+MAX_DECEL = 2       # Maximum deceleration 
 SMOOTH_DECEL = 1. / LOOKAHEAD_WPS # Smooth deceleration
 
 class WaypointUpdater(object):

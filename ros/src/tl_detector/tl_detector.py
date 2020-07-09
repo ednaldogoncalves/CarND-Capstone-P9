@@ -13,9 +13,9 @@ import cv2
 import yaml
 
 
-STATE_COUNT_THRESHOLD = 3
-IMAGE_COUNT = 3  # number of images to skip classifications 
-CHECK_DIST_MAX = 150  #  distance to start checking camera image
+STATE_COUNT_THRESHOLD = 1
+IMAGE_COUNT = 1  # number of images to skip classifications 
+CHECK_DIST_MAX = 100  #  distance to start checking camera image
 DESC_LIGHTS = ['Red', 'Yellow', 'Green', 'Unknown']
 
 class TLDetector(object):

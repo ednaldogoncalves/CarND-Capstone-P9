@@ -15,3 +15,5 @@ videos/full_video_high_play/full_video_high_embed.css
 videos/full_video_high_play/scripts/techsmith-smart-player.min.js
 videos/full_video_high_play/full_video_high_player.html
 videos/full_video_high_play/full_video_high.mp4
+ros/src/tl_detector/tl_detector_bkp.py
+ros/src/waypoint_updater/waypoint_updater_bkp.py

@@ -501,6 +501,6 @@ The final results:
 
 <p align="center">
 Full video of the track lap executed in the project<br>
-<a target="_blank" style="text-decoration: none" href="https://www.lgontelecom.com.br/udacity/project9/full_video_high_player.html"><img src="./imgs/full_video.jpg"></a><br>
+<a target="_blank" style="text-decoration: none" href="https://drive.google.com/file/d/16r5UuUszu4iDhyIM1-GZeVLaxsbIorwL/view?usp=sharing"><img src="./imgs/full_video.jpg"></a><br>
 <a href="./videos/full_video_high.mp4">Download video</a>
 </p>
